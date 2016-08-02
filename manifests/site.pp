@@ -45,6 +45,11 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, Kim": }
   
+  package { 'cowsay':
+    ensure => present,
+    provider => gem,
+    }
+    
   file {'/etc/motd':
     ensure => file,
     owner => 'root',
