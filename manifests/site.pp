@@ -50,11 +50,8 @@ node default {
     provider => gem,
     }
     
-  file {'/etc/motd':
-    ensure => file,
-    owner => 'root',
-    group => 'root',
-    mode => '0644',
-    content => "Today is a good day for puppet.\n",
+  exec {cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+    path => '/usr:/usr/bin:/usr/local/bin',
+    creates => '/etc/motd',
     }
 }
