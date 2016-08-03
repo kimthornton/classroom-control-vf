@@ -42,13 +42,14 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+  include examples::fundamentals
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, Kim": }
   
-  package { 'cowsay':
-    ensure => present,
-    provider => gem,
-    }
+  #package { 'cowsay':
+  #  ensure => present,
+  #  provider => gem,
+  #  }
     
   #file { '/etc/motd':
   #  ensure => file,
