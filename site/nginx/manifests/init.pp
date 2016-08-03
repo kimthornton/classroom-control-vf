@@ -45,7 +45,7 @@ class nginx {
     notify => Service['nginx'],
   }
   
-  service {'nginx'"
+  service {'nginx':
     ensure => running,
     enable => 'true',
   }
