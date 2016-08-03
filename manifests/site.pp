@@ -46,5 +46,4 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, Kim": }
   
-  
 }
