@@ -47,7 +47,7 @@ class nginx {
   
   service {'nginx':
     ensure => running,
-    enable => 'true',
+    enable => true,
   }
 
 }
