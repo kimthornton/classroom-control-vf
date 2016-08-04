@@ -48,7 +48,7 @@ node default {
   notify { "Hello, Kim": }
   
   if $::virtual != 'physical' {
-    $vmname = capitalize($::virtual)
+    $vmname = $::virtual
     notify { "${vmname} is a virtual machine.":}
     }
   
