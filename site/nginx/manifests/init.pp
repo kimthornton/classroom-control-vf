@@ -11,7 +11,7 @@ class nginx {
   'windows':{
     $package = 'nginx-service'
     $owner = 'Administrator'
-    $group = 'Administrator'
+    $group = 'Administrators'
     $docroot = 'C:/ProgramData/nginx/html'
     $confdir = 'C:/ProgramData/nginx'
     $logdir = 'C:/ProgramData/nginx/logs;
