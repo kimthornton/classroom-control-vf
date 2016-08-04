@@ -45,14 +45,14 @@ class nginx {
     source  => 'puppet:///modules/nginx/index.html',
   }
   
-  file {"${confdir}/nginx.conf":
+  file { "${confdir}/nginx.conf":
    ensure   => file,
     mode    => '0664',
     content => template('nginx/nginx.conf.erb'),
     notify  => Service['nginx'],
   }
   
-  file {"${confdir}/conf.d/default.conf":
+  file { "${confdir}/conf.d/default.conf":
     ensure  => file,
     mode    => '0664',
     content => template('nginx/default.conf.erb'),
