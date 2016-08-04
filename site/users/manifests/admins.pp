@@ -1,12 +1,12 @@
 class users::admins {
-  users::managed_user {'joe'}
+  users::managed_user {'joe':}
   users::managed_user {'alice':
-    group => 'staff',
+    group => 'devel',
   }
   users::managed_user {'chen':
-    group => 'staff',
+    group => 'devel',
   }
-  group {'staff':
+  group {'devel':
     ensure  => present,
   }
 }
