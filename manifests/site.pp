@@ -44,6 +44,7 @@ node default {
   #   class { 'my_class': }
   include memcached
   include nginx
+  include aliases
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, Kim": }
   
