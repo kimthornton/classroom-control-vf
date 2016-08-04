@@ -43,7 +43,6 @@ class nginx {
   
   file { "${docroot}/index.html":
     ensure => file,
-    mode => '0664',
     source => 'puppet:///modules/nginx/index.html',
   }
   
