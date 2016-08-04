@@ -47,4 +47,9 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, Kim": }
   
+  if $::virtual != 'physical' {
+    $vmname = $::virtual
+    notify { " ${vmname} is a virtual machine."}
+    }
+  
 }
