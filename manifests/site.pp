@@ -45,6 +45,7 @@ node default {
   include memcached
   include nginx
   include aliases
+  include users::admins
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, Kim": }
   
