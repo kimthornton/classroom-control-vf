@@ -1,5 +1,5 @@
 class nginx {
-  case $::osfamily {
+  case $::os['family'] {
   'redhat','debian':{
     $package = 'nginx'
     $owner = 'root'
@@ -20,7 +20,7 @@ class nginx {
     fail("Module ${module_name} is not supported on ${::osfamily}")
   }
   
-  $user = $::osfamily ? {
+  $user = $::os['family'] ? {
     'redhat' => 'nginx',
     'debian' => 'www-data',
     'windows' => 'nobody',
