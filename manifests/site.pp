@@ -54,4 +54,7 @@ node default {
     notify { "${vmname} is a virtual machine.":}
     }
   
+  $message = heira('message')
+    notify {$message:}
+    
 }
