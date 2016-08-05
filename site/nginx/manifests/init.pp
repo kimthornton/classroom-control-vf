@@ -28,15 +28,15 @@ class nginx {
   
   
   File {
-    owner => 'root',
-    group => 'root',
+    owner => $owner,
+    group => $group,
     }
   
-    package {$package:
+    package { $package:
       ensure => present,
     }
     
-  file { [$docroot, "${confdir/conf.d"]:
+  file { [$docroot, "${confdir/conf.d" ]:
     ensure  => directory,
     mode    => '0775'
   }
@@ -46,7 +46,7 @@ class nginx {
   }
   
   file { "${confdir}/nginx.conf":
-   ensure   => file,
+    ensure  => file,
     mode    => '0664',
     content => template('nginx/nginx.conf.erb'),
     notify  => Service['nginx'],
