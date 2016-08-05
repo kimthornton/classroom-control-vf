@@ -26,19 +26,18 @@ class nginx {
     'windows' => 'nobody',
   }
   
-  
   File {
     owner => $owner,
     group => $group,
+    mode  =>  '0664',
     }
   
     package { $package:
       ensure => present,
     }
     
-  file { [$docroot, "${confdir}/conf.d" ]:
+  file { $docroot:
     ensure  => directory,
-    mode    => '0775',
   }
   
   file { "${docroot}/index.html":
@@ -46,18 +45,14 @@ class nginx {
   }
   
   file { "${confdir}/nginx.conf":
-    ensure  => file,
-    mode    => '0664',
     content => template('nginx/nginx.conf.erb'),
     notify  => Service['nginx'],
   }
   
-#  file { "${confdir}/conf.d/default.conf" :
-#    ensure  => file,
-#    mode    => '0664',
-#    content => template('nginx/default.conf.erb'),
-#    notify  => Service['nginx'],
-#  }
+  file { "${confdir}/conf.d/default.conf" :
+    content => template('nginx/default.conf.erb'),
+    notify  => Service['nginx'],
+  }
   
   service {'nginx':
     ensure => running,
