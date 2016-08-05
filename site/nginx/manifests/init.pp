@@ -36,7 +36,7 @@ class nginx {
       ensure => present,
     }
     
-  file { [$docroot, "${confdir/conf.d" ]:
+  file { [$docroot, "${confdir}/conf.d" ]:
     ensure  => directory,
     mode    => '0775',
   }
