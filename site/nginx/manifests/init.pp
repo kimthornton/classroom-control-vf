@@ -1,4 +1,4 @@
-class nginx {
+class nginx (
   $owner    = $nginx::params::owner,
   $group    = $nginx::params::group,
   $package  = $nginx::params::package,
@@ -6,7 +6,7 @@ class nginx {
   $blockdir = $nginx::params::blockdir,
   $logdir   = $nginx::params::logdir,
   $user     = $nginx::params::user,
-  } inherits nginx::params {
+  ) inherits nginx::params {
   
   File {
     ensure => file,
