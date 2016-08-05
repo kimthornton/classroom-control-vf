@@ -20,9 +20,9 @@ class nginx::params {
     fail("Module ${module_name} is not supported on ${::os['family']}")
   }
  }
- $user = $::osfamily ? {
+ $user = $::os['family'] ? {
   'redhat'  => 'nginx',
   'debian'  =>  'www-data',
-  'windows  => 'nobody',
+  'windows'  => 'nobody',
   }
 }
