@@ -38,7 +38,7 @@ class nginx {
     
   file { [$docroot, "${confdir/conf.d" ]:
     ensure  => directory,
-    mode    => '0775'
+    mode    => '0775',
   }
   
   file { "${docroot}/index.html":
