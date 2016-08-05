@@ -27,6 +27,7 @@ class nginx {
   }
   
   File {
+    ensure => file,
     owner => $owner,
     group => $group,
     mode  =>  '0664',
