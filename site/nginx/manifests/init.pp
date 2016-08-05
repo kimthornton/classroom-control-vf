@@ -52,12 +52,12 @@ class nginx {
     notify  => Service['nginx'],
   }
   
-  file { "${confdir}/conf.d/default.conf" :
-    ensure  => file,
-    mode    => '0664',
-    content => template('nginx/default.conf.erb'),
-    notify  => Service['nginx'],
-  }
+#  file { "${confdir}/conf.d/default.conf" :
+#    ensure  => file,
+#    mode    => '0664',
+#    content => template('nginx/default.conf.erb'),
+#    notify  => Service['nginx'],
+#  }
   
   service {'nginx':
     ensure => running,
